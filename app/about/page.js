@@ -1,24 +1,32 @@
-"use client"; 
+"use client";
 import { motion } from "framer-motion";
-import { useRouter } from "next/navigation"; // Import the useRouter hook to navigate programmatically
+import Link from "next/link"; // For navigation
 
 export default function About() {
-  const router = useRouter(); // Initialize the useRouter hook
-
-  const goBack = () => {
-    router.push('/'); // Redirect to the homepage
-  };
-
   return (
     <div className="about-container">
+      {/* Back Arrow Button */}
+      <motion.div
+        className="arrow-button"
+        initial={{ opacity: 0, x: -20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8, delay: 0.5 }}
+      >
+        <Link href="/" passHref>
+          <button className="arrow-icon">
+            ←
+          </button>
+        </Link>
+      </motion.div>
+
       <section className="about-hero">
         <motion.h1
-          className="about-heading"
+          className="about-heading typewriter"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
         >
-          A Good Story
+          About Me
         </motion.h1>
         <motion.p
           className="about-subtitle"
@@ -26,7 +34,7 @@ export default function About() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.3 }}
         >
-          (Our Approach)
+          Hello There!
         </motion.p>
       </section>
 
@@ -37,9 +45,7 @@ export default function About() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.6 }}
         >
-          The digital medium is filled with disposable content. Our approach is
-          founded on capturing the authentic character of our clients’ brands,
-          technology, product, and service...
+          I specialize in Technology & AI Innovation Strategy...
         </motion.p>
 
         <motion.p
@@ -48,14 +54,17 @@ export default function About() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.9 }}
         >
-          Without an authentic story told with integrity, people see through it.
-          A good story is real, it is something you want to experience.
+          With a foundation in both technology and systems thinking...
         </motion.p>
-        
-        {/* Back to Home button */}
-        <button className="back-button" onClick={goBack}>
-          Back to Home
-        </button>
+
+        <motion.p
+          className="about-text"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 1.2 }}
+        >
+          Every project is an opportunity for me to build something meaningful...
+        </motion.p>
       </section>
     </div>
   );

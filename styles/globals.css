@@ -64,16 +64,16 @@
     color: #aaa;
   }
   
-/* =======================
+  /* =======================
      HERO SECTION
-======================= */
-.hero-section {
-    flex: 1; 
+  ======================= */
+  .hero-section {
+    flex: 1;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
-    background: transparent;  /* Remove any background color/image */
+    background: transparent; /* Remove any background color/image */
   }
   
   .hero-video {
@@ -82,35 +82,35 @@
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;   /* Ensures the video fills the area */
-    z-index: 0;          /* Places the video behind the content */
+    object-fit: cover; /* Ensures the video fills the area */
+    z-index: 0;       /* Places the video behind the content */
   }
   
   .hero-content {
     position: relative;
-    z-index: 1;          /* Ensures content appears above the video */
+    z-index: 1;       /* Ensures content appears above the video */
     text-align: center;
     max-width: 800px;
     padding: 0 20px;
   }
-
-.hero-heading {
+  
+  .hero-heading {
     font-size: 3rem;
     font-weight: 700;
     letter-spacing: 2px;
     text-transform: uppercase;
     margin-bottom: 1rem;
     line-height: 1.2;
-}
-
-.hero-subheading {
+  }
+  
+  .hero-subheading {
     font-size: 1.2rem;
     font-weight: 300;
     margin-bottom: 2rem;
     color: #ccc;
-}
-
-.hero-cta {
+  }
+  
+  .hero-cta {
     background: transparent;
     border: 1px solid #fff;
     color: #fff;
@@ -119,13 +119,13 @@
     letter-spacing: 1px;
     cursor: pointer;
     transition: background 0.3s ease, color 0.3s ease;
-}
-
-.hero-cta:hover {
+  }
+  
+  .hero-cta:hover {
     background: #fff;
     color: #111;
-}
-
+  }
+  
   /* =======================
      BOTTOM BAR / FOOTER
   ======================= */
@@ -203,13 +203,11 @@
       font-size: 0.7rem;
     }
   }
-
-
-
-/* ABOUT PAGE STYLES */
-
-/* Main Container */
-.about-container {
+  
+  /* ABOUT PAGE STYLES */
+  
+  /* Main Container */
+  .about-container {
     min-height: 100vh;
     width: 100%;
     background: #111; /* Very dark background */
@@ -219,49 +217,85 @@
     align-items: center;
     padding: 5rem 2rem;
     text-align: center;
-}
-
-/* Hero Section */
-.about-hero {
+    position: relative; /* So the arrow button can be absolutely positioned if needed */
+  }
+  
+  /* Back Arrow Button */
+  .arrow-button {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    z-index: 2;
+  }
+  
+  .arrow-icon {
+    width: 50px;
+    height: 50px;
+    background-color: #222;
+    color: #fff;
+    font-size: 1.5rem;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .arrow-icon:hover {
+    background-color: #333;
+    transform: translateY(-2px);
+  }
+  
+  /* Hero Section for About */
+  .about-hero {
     margin-bottom: 3rem;
-}
-
-.about-heading {
+  }
+  
+  .about-heading {
     font-size: 3rem;
     font-weight: 700;
     letter-spacing: 2px;
     margin-bottom: 1rem;
     text-transform: uppercase;
-}
-
-.about-subtitle {
+  }
+  
+  .about-subtitle {
     font-size: 1.2rem;
     color: #aaa;
-}
-
-/* Content Section */
-.about-content {
+  }
+  
+  /* Content Section */
+  .about-content {
     max-width: 800px;
     margin: 0 auto;
-}
-
-.about-text {
+  }
+  
+  .about-text {
     font-size: 1rem;
     line-height: 1.6;
     color: #ccc;
     margin-bottom: 1.5rem;
-}
-
-/* Back to Home Button */
-.back-button {
-    background-color: #fff;
-    color: #111;
-    font-size: 1.1rem;
-    font-weight: 600;
-    padding: 10px 20px;
-    margin-top: 2rem;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  /* Add Typewriter Effect */
+  @keyframes typewriter {
+    0% {
+      width: 0;
+    }
+    100% {
+      width: 100%;
+    }
+  }
+  
+  .typewriter {
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid #fff;  /* Cursor effect */
+    animation: typewriter 4s steps(30) 1s forwards, blink 0.75s step-end infinite;
+  }
+  
+  @keyframes blink {
+    50% {
+      border-color: transparent;
+    }
   }

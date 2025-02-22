@@ -51,7 +51,7 @@ export default function HomePage() {
           <p className="hero-subheading">
           Bridging Technology and Creativity for Lasting Impact.
           </p>
-          <button className="hero-cta">My Work →</button>
+          <button className="hero-cta">View My Portfolio →</button>
         </motion.div>
       </section>
 
