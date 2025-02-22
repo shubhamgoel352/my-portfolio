@@ -1,3 +1,4 @@
+/* Background Image for Intro Screen */
 .intro-screen {
     background-image: url('/vortex-background.jpg'); /* Make sure the filename matches */
     background-size: cover;
@@ -5,29 +6,31 @@
     background-repeat: no-repeat;
     width: 100%;
     height: 100vh; /* Full screen */
-  }
-  
-  html {
+}
+
+/* Global Styles */
+html {
     scroll-behavior: smooth; /* Enables smooth scrolling */
-  }
-  
-  body {
+}
+
+body {
     overflow-x: hidden; /* Prevents horizontal scroll */
     font-family: 'Inter', sans-serif; /* Modern typography */
     padding-top: 90px; /* Prevents content from being hidden under the fixed header */
     background-color: #ffffff; /* White background */
-  }
-  
-  /* Ensures the entire page structure fits */
-  html, body {
+}
+
+/* Ensures the entire page structure fits */
+html, body {
     margin: 0;
     padding: 0;
     width: 100%;
     height: 100%;
-    overflow-x: hidden;
-  }
-  
-  section {
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+/* Section Styling */
+section {
     min-height: 100vh; /* Ensures each section takes full screen height */
     width: 100%;
     display: flex;
@@ -35,12 +38,12 @@
     justify-content: center;
     align-items: center;
     padding: 5rem 2rem; /* Adjust spacing */
-  }
-  
-  /* Header Styling */
-  nav {
-    background-color: white; /* White background */
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Header Styling */
+.nav-bar {
+    background-color: white;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     position: fixed;
     top: 0;
     left: 0;
@@ -48,50 +51,80 @@
     padding: 20px 40px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-between; /* Keeps logo left, links in center */
     z-index: 1000;
-  }
-  
-  /* Ensures the name is left-aligned */
-  nav h1 {
+}
+
+/* Ensures "Shubham Goel" stays left-aligned */
+.logo {
     font-size: 24px;
     font-weight: bold;
     color: black;
     margin: 0;
-  }
-  
-  /* Navigation Center Alignment */
-  .nav-links {
+}
+
+/* Wraps Navigation Links to Keep Them Centered */
+.nav-links-container {
     position: absolute;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-50%); /* Centers the links */
+    display: flex;
+}
+
+/* Navigation Links */
+.nav-links {
     display: flex;
     gap: 40px;
-  }
-  
-  .nav-links a {
+    white-space: nowrap; /* Prevents text wrapping */
+    align-items: center; /* Keeps links vertically aligned */
+}
+
+/* Style Individual Links */
+.nav-item {
     text-decoration: none;
     font-size: 18px;
     font-weight: 500;
     color: black;
     transition: color 0.3s ease;
-  }
-  
-  .nav-links a:hover {
+    padding: 5px 15px;
+}
+
+.nav-item:hover {
     color: gray;
-  }
-  
-  /* Ensures h1 and h2 are well-spaced */
-  h1, h2 {
+}
+
+/* Ensures h1 and h2 are well-spaced */
+h1, h2 {
     text-align: center;
     max-width: 80%;
     font-weight: bold;
-  }
-  
-  /* Ensures paragraph readability */
-  p {
+}
+
+/* Ensures paragraph readability */
+p {
     max-width: 60%;
     text-align: center;
     font-size: 1.2rem;
     color: #4a4a4a; /* Darker gray */
-  }
+}
+
+/* Mobile-Friendly Fixes */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 15px 20px;
+    }
+
+    .nav-container {
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+}
