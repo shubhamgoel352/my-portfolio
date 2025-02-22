@@ -1,31 +1,28 @@
 "use client";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 export default function Header() {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <motion.nav
-      className="nav-bar"
-      initial={{ opacity: 0, y: -50 }}
+      className={`nav-bar ${isScrolled ? "scrolled" : ""}`}
+      initial={{ opacity: 1, y: 0 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 1 }}
+      transition={{ duration: 0.5 }}
     >
-      {/* Left-aligned logo */}
-      <h1 className="logo">Shubham Goel</h1>
-
-      {/* Navigation Links (Centered with the body alignment) */}
-      <div className="nav-links-container">
-        <div className="nav-links">
-          {["About Me", "Industries", "Blog"].map((item) => (
-            <a
-              key={item}
-              href={`#${item.toLowerCase().replace(/\s+/g, "-")}`}
-              className="nav-item"
-            >
-              {item}
-            </a>
-          ))}
-        </div>
-      </div>
+      {/* Centered Header Text */}
+      <h1 className="header-title">About Shubham Goel</h1>
     </motion.nav>
   );
 }

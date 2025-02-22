@@ -1,113 +1,58 @@
 "use client";
-import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import IntroScreen from "./components/IntroScreen";
-import Header from "./components/Header";
 
-export default function Home() {
-  const [showMainContent, setShowMainContent] = useState(false);
-
-  useEffect(() => {
-    document.body.style.overflow = showMainContent ? "auto" : "hidden"; // Prevent scrolling during intro
-  }, [showMainContent]);
-
+export default function HomePage() {
   return (
-    <div className={`transition-opacity duration-1000 ${showMainContent ? "opacity-100" : "opacity-0"}`}>
-      {!showMainContent && (
-        <IntroScreen onIntroComplete={() => setShowMainContent(true)} />
-      )}
+    <div className="main-container">
+      {/* Minimal Navigation */}
+      <header className="top-nav">
+        <div className="nav-left">SHUBHAM GOEL</div>
+        <nav className="nav-right">
+          <a href="#index" className="nav-link">MY PROJECTS</a>
+          <a href="#close" className="nav-link">ABOUT ME</a>
+          <a href="#sitemap" className="nav-link">SOCIALS</a>
+        </nav>
+      </header>
 
-      {showMainContent && (
-        <>
-          <Header />
+      {/* Hero Section */}
+      <section className="hero-section">
+        {/* Video Background */}
+        <video 
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="hero-video"
+        >
+          <source src="/intro-video.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
 
-          {/* Hero Section */}
-          <section className="min-h-screen flex flex-col items-center justify-center text-center px-4">
-            <motion.h1
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1 }}
-              className="text-5xl md:text-6xl font-bold"
-            >
-              Welcome to My Portfolio
-            </motion.h1>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5, duration: 1 }}
-              className="mt-4 text-md md:text-lg text-gray-300 max-w-lg"
-            >
-              Showcasing my work in AI, Smart Arenas, and Innovation.
-            </motion.p>
-          </section>
+        {/* Existing Hero Content */}
+        <motion.div
+          className="hero-content"
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+        >
+          <h1 className="hero-heading">Technology Redifined.</h1>
+          <p className="hero-subheading">
+            Your brand's story told through digital artistry.
+          </p>
+          <button className="hero-cta">My Work →</button>
+        </motion.div>
+      </section>
 
-          {/* About Section */}
-          <section className="min-h-screen flex flex-col items-center justify-center text-center px-4">
-            <motion.h2
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1 }}
-              className="text-3xl md:text-4xl font-semibold"
-            >
-              About Me
-            </motion.h2>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.3, duration: 1 }}
-              className="mt-4 text-md md:text-lg text-gray-300 max-w-lg"
-            >
-              I am an AI Innovation Strategy Senior Manager at Lenovo, specializing in Smart Technology, AI solutions, and digital transformation.
-            </motion.p>
-          </section>
-
-          {/* Projects Section */}
-          <section className="min-h-screen flex flex-col items-center justify-center text-center px-4">
-            <motion.h2
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1 }}
-              className="text-3xl md:text-4xl font-semibold"
-            >
-              Projects
-            </motion.h2>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.3, duration: 1 }}
-              className="mt-4 text-md md:text-lg text-gray-300 max-w-lg"
-            >
-              From AI-driven chatbots to smart arenas, my work bridges innovation with real-world impact.
-            </motion.p>
-          </section>
-
-          {/* Contact Section */}
-          <section className="min-h-screen flex flex-col items-center justify-center text-center px-4">
-            <motion.h2
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1 }}
-              className="text-3xl md:text-4xl font-semibold"
-            >
-              Contact Me
-            </motion.h2>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.3, duration: 1 }}
-              className="mt-4 text-md md:text-lg text-gray-300 max-w-lg"
-            >
-              Let's connect! Reach out to discuss AI, innovation, or new opportunities.
-            </motion.p>
-          </section>
-        </>
-      )}
+      {/* Footer / Bottom Bar */}
+      <footer className="bottom-bar">
+        <div className="left-bar">
+          <p>Thank you for visiting</p>
+        </div>
+        <div className="right-bar">
+          <button>Accept</button>
+          <button>Sound On</button>
+        </div>
+      </footer>
     </div>
   );
 }

@@ -1,173 +1,205 @@
-/* Video Background Styling */
-.intro-screen {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: black; /* Ensures a smooth transition */
-    transition: opacity 1s ease-in-out;
-}
-
-/* Video Element */
-.intro-video {
-    width: 100vw;
-    height: 100vh;
-    object-fit: cover;
-}
-
-/* Mobile Optimization for Video */
-@media (max-width: 768px) {
-    .intro-video {
-        width: 100%;
-        height: auto;
-        min-height: 100vh;
-    }
-}
-
-/* Global Styles */
-html {
-    scroll-behavior: smooth; /* Enables smooth scrolling */
-}
-
-body {
-    overflow-x: hidden; /* Prevents horizontal scroll */
-    font-family: 'Inter', sans-serif; /* Modern typography */
-    padding-top: 90px; /* Prevents content from being hidden under the fixed header */
-    background-color: #ffffff; /* White background */
-}
-
-/* Ensures the entire page structure fits */
-html, body {
+/* =======================
+   GLOBAL RESET & BODY
+======================= */
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html, body {
     width: 100%;
     height: 100%;
-    overflow-x: hidden;
-}
-
-/* Section Styling */
-section {
-    min-height: 100vh;
-    width: 100%;
+    font-family: "Montserrat", sans-serif;
+    background: #111; /* Very dark background */
+    color: #fff;      /* White text */
+  }
+  
+  /* Main Container to hold everything */
+  .main-container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 5rem 2rem;
-}
-
-/* Responsive Section Fixes */
-@media (max-width: 768px) {
-    section {
-        padding: 3rem 1rem;
-        text-align: center;
-    }
-}
-
-/* Header Styling */
-.nav-bar {
-    background-color: white;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    min-height: 100vh;
+  }
+  
+  /* =======================
+     NAVIGATION
+  ======================= */
+  .top-nav {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    padding: 20px 40px;
+    height: 60px;
+    padding: 0 40px;
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    z-index: 1000;
-}
-
-/* Ensures "Shubham Goel" stays left-aligned */
-.logo {
-    font-size: 24px;
-    font-weight: bold;
-    color: black;
-    margin: 0;
-}
-
-/* Wraps Navigation Links to Keep Them Centered */
-.nav-links-container {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-}
-
-/* Navigation Links */
-.nav-links {
-    display: flex;
-    gap: 40px;
-    white-space: nowrap;
     align-items: center;
-}
-
-/* Style Individual Links */
-.nav-item {
-    text-decoration: none;
-    font-size: 18px;
-    font-weight: 500;
-    color: black;
-    transition: color 0.3s ease;
-    padding: 5px 15px;
-}
-
-.nav-item:hover {
-    color: gray;
-}
-
-/* Ensures h1 and h2 are well-spaced */
-h1, h2 {
-    text-align: center;
-    max-width: 80%;
+    background: rgba(17,17,17, 0.9); /* Dark background, slight transparency */
+    backdrop-filter: blur(5px);
+    z-index: 1000;
+  }
+  
+  .nav-left {
+    font-size: 1rem;
     font-weight: bold;
-}
-
-/* Ensures paragraph readability */
-p {
-    max-width: 60%;
+    letter-spacing: 2px;
+  }
+  
+  .nav-right {
+    display: flex;
+    gap: 30px;
+  }
+  
+  .nav-link {
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+  }
+  
+  .nav-link:hover {
+    color: #aaa;
+  }
+  
+/* =======================
+     HERO SECTION
+======================= */
+.hero-section {
+    flex: 1; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background: transparent;  /* Remove any background color/image */
+  }
+  
+  .hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;   /* Ensures the video fills the area */
+    z-index: 0;          /* Places the video behind the content */
+  }
+  
+  .hero-content {
+    position: relative;
+    z-index: 1;          /* Ensures content appears above the video */
     text-align: center;
+    max-width: 800px;
+    padding: 0 20px;
+  }
+
+.hero-heading {
+    font-size: 3rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.hero-subheading {
     font-size: 1.2rem;
-    color: #4a4a4a;
+    font-weight: 300;
+    margin-bottom: 2rem;
+    color: #ccc;
 }
 
-/* Responsive Font Adjustments */
-@media (max-width: 768px) {
-    h1 {
-        font-size: 2.5rem;
-    }
-
-    h2 {
-        font-size: 2rem;
-    }
-
-    p {
-        font-size: 1rem;
-        max-width: 90%;
-    }
+.hero-cta {
+    background: transparent;
+    border: 1px solid #fff;
+    color: #fff;
+    padding: 0.8rem 1.2rem;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: background 0.3s ease, color 0.3s ease;
 }
 
-/* Mobile-Friendly Navbar Fixes */
-@media (max-width: 768px) {
-    .nav-bar {
-        flex-direction: column;
-        align-items: center;
-        padding: 15px 20px;
-    }
-
-    .nav-links-container {
-        position: static;
-        transform: none;
-    }
-
-    .nav-links {
-        flex-direction: column;
-        gap: 10px;
-    }
+.hero-cta:hover {
+    background: #fff;
+    color: #111;
 }
+
+  /* =======================
+     BOTTOM BAR / FOOTER
+  ======================= */
+  .bottom-bar {
+    position: relative;
+    width: 100%;
+    height: 60px;
+    background: rgba(17,17,17, 0.95);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+  }
+  
+  .bottom-bar p {
+    font-size: 0.8rem;
+    color: #aaa;
+  }
+  
+  .left-bar, .right-bar {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+  
+  .bottom-bar button {
+    background: none;
+    border: 1px solid #444;
+    color: #ccc;
+    padding: 0.4rem 0.8rem;
+    cursor: pointer;
+    font-size: 0.8rem;
+  }
+  
+  .bottom-bar button:hover {
+    background: #555;
+    color: #fff;
+  }
+  
+  /* =======================
+     RESPONSIVE
+  ======================= */
+  @media (max-width: 768px) {
+    .top-nav {
+      height: 50px;
+      padding: 0 20px;
+    }
+  
+    .nav-left {
+      font-size: 0.9rem;
+    }
+  
+    .nav-link {
+      font-size: 0.8rem;
+    }
+  
+    .hero-heading {
+      font-size: 2rem;
+    }
+  
+    .hero-subheading {
+      font-size: 1rem;
+    }
+  
+    .hero-cta {
+      font-size: 0.9rem;
+    }
+  
+    .bottom-bar {
+      height: 50px;
+      padding: 0 20px;
+    }
+  
+    .bottom-bar p, .bottom-bar button {
+      font-size: 0.7rem;
+    }
+  }
