@@ -15,9 +15,9 @@
 
 /* Video Element */
 .intro-video {
-    width: 100vw; /* Fullscreen width */
-    height: 100vh; /* Fullscreen height */
-    object-fit: cover; /* Ensures video covers the screen */
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
 }
 
 /* Mobile Optimization for Video */
@@ -26,7 +26,6 @@
         width: 100%;
         height: auto;
         min-height: 100vh;
-        object-fit: contain; /* Fixes cropping issue in vertical mode */
     }
 }
 
