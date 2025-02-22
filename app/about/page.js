@@ -13,9 +13,7 @@ export default function About() {
         transition={{ duration: 0.8, delay: 0.5 }}
       >
         <Link href="/" passHref>
-          <button className="arrow-icon">
-            ←
-          </button>
+          <button className="back-button">← Back</button>
         </Link>
       </motion.div>
 

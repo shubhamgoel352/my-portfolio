@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 export default function HomePage() {
   const videoRef = useRef(null);
@@ -8,7 +9,7 @@ export default function HomePage() {
   useEffect(() => {
     const video = videoRef.current;
     if (video) {
-      // Set playback speed to 0.5 (half speed)
+      // Set playback speed to 0.6 (60% speed)
       video.playbackRate = 0.6;
     }
   }, []);
@@ -47,21 +48,23 @@ export default function HomePage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
         >
-        <h1 className="hero-heading">Creating, Innovating, and Transforming</h1>
+          <h1 className="hero-heading">Creating, Innovating, and Transforming</h1>
           <p className="hero-subheading">
-          Bridging Technology and Creativity for Lasting Impact.
+            Bridging Technology and Creativity for Lasting Impact.
           </p>
-          <button className="hero-cta">View My Portfolio →</button>
+          <Link href="/projects" passHref>
+            <button className="hero-cta">VIEW MY PORTFOLIO →</button>
+          </Link>
         </motion.div>
       </section>
 
       {/* Footer / Bottom Bar */}
       <footer className="bottom-bar">
         <div className="left-bar">
-            <p></p>
+          <p></p>
         </div>
         <div className="right-bar">
-            <p>Thank you for visiting</p>
+          <p>Thank you for visiting</p>
         </div>
       </footer>
     </div>

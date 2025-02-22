@@ -23,7 +23,7 @@
   }
   
   /* =======================
-     NAVIGATION
+       NAVIGATION
   ======================= */
   .top-nav {
     position: fixed;
@@ -65,15 +65,15 @@
   }
   
   /* =======================
-     HERO SECTION
+       HERO SECTION
   ======================= */
   .hero-section {
-    flex: 1;
+    flex: 1; 
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
-    background: transparent; /* Remove any background color/image */
+    background: transparent;  /* Remove any background color/image */
   }
   
   .hero-video {
@@ -82,13 +82,13 @@
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Ensures the video fills the area */
-    z-index: 0;       /* Places the video behind the content */
+    object-fit: cover;   /* Ensures the video fills the area */
+    z-index: 0;          /* Places the video behind the content */
   }
   
   .hero-content {
     position: relative;
-    z-index: 1;       /* Ensures content appears above the video */
+    z-index: 1;          /* Ensures content appears above the video */
     text-align: center;
     max-width: 800px;
     padding: 0 20px;
@@ -127,7 +127,7 @@
   }
   
   /* =======================
-     BOTTOM BAR / FOOTER
+       BOTTOM BAR / FOOTER
   ======================= */
   .bottom-bar {
     position: relative;
@@ -166,61 +166,90 @@
   }
   
   /* =======================
-     RESPONSIVE
+       RESPONSIVE
   ======================= */
   @media (max-width: 768px) {
     .top-nav {
       height: 50px;
       padding: 0 20px;
     }
-  
+    
     .nav-left {
       font-size: 0.9rem;
     }
-  
+    
     .nav-link {
       font-size: 0.8rem;
     }
-  
+    
     .hero-heading {
       font-size: 2rem;
     }
-  
+    
     .hero-subheading {
       font-size: 1rem;
     }
-  
+    
     .hero-cta {
       font-size: 0.9rem;
     }
-  
+    
     .bottom-bar {
       height: 50px;
       padding: 0 20px;
     }
-  
+    
     .bottom-bar p, .bottom-bar button {
       font-size: 0.7rem;
     }
   }
   
-  /* ABOUT PAGE STYLES */
-  
-  /* Main Container */
+  /* =======================
+       ABOUT PAGE STYLES
+  ======================= */
   .about-container {
     min-height: 100vh;
     width: 100%;
-    background: #111; /* Very dark background */
+    background: #111;
     color: #fff;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 5rem 2rem;
     text-align: center;
-    position: relative; /* So the arrow button can be absolutely positioned if needed */
+    position: relative;
   }
   
-  /* Back Arrow Button */
+  .about-hero {
+    margin-bottom: 3rem;
+  }
+  
+  .about-heading {
+    font-size: 3rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+  }
+  
+  .about-subtitle {
+    font-size: 1.2rem;
+    color: #aaa;
+  }
+  
+  .about-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .about-text {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #ccc;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Back to Main Page Arrow Button */
   .arrow-button {
     position: absolute;
     top: 2rem;
@@ -245,38 +274,9 @@
     transform: translateY(-2px);
   }
   
-  /* Hero Section for About */
-  .about-hero {
-    margin-bottom: 3rem;
-  }
-  
-  .about-heading {
-    font-size: 3rem;
-    font-weight: 700;
-    letter-spacing: 2px;
-    margin-bottom: 1rem;
-    text-transform: uppercase;
-  }
-  
-  .about-subtitle {
-    font-size: 1.2rem;
-    color: #aaa;
-  }
-  
-  /* Content Section */
-  .about-content {
-    max-width: 800px;
-    margin: 0 auto;
-  }
-  
-  .about-text {
-    font-size: 1rem;
-    line-height: 1.6;
-    color: #ccc;
-    margin-bottom: 1.5rem;
-  }
-  
-  /* Add Typewriter Effect */
+  /* =======================
+       TYPEWRITER EFFECT
+  ======================= */
   @keyframes typewriter {
     0% {
       width: 0;
@@ -297,5 +297,88 @@
   @keyframes blink {
     50% {
       border-color: transparent;
+    }
+  }
+  
+  /* =======================
+       PROJECTS PAGE STYLES
+  ======================= */
+  .projects-container {
+    min-height: 100vh;
+    padding: 4rem 2rem;
+    background: #111;
+    color: #fff;
+  }
+  
+  .projects-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 3rem;
+    padding: 0 20px;
+  }
+  
+  .projects-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  .back-button {
+    background-color: #fff;
+    color: #111;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 30px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+  }
+  
+  .back-button:hover {
+    background-color: #111;
+    color: #fff;
+    transform: translateY(-3px);
+  }
+  
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    padding: 0 20px;
+  }
+  
+  .project-card {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1.5rem;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  .project-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  
+  .project-description {
+    font-size: 1rem;
+    color: #ccc;
+  }
+  
+  /* Responsive Projects Page */
+  @media (max-width: 768px) {
+    .projects-title {
+      font-size: 2rem;
+    }
+    .projects-grid {
+      grid-template-columns: 1fr;
     }
   }
