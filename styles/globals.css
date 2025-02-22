@@ -203,3 +203,65 @@
       font-size: 0.7rem;
     }
   }
+
+
+
+/* ABOUT PAGE STYLES */
+
+/* Main Container */
+.about-container {
+    min-height: 100vh;
+    width: 100%;
+    background: #111; /* Very dark background */
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5rem 2rem;
+    text-align: center;
+}
+
+/* Hero Section */
+.about-hero {
+    margin-bottom: 3rem;
+}
+
+.about-heading {
+    font-size: 3rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+}
+
+.about-subtitle {
+    font-size: 1.2rem;
+    color: #aaa;
+}
+
+/* Content Section */
+.about-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.about-text {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #ccc;
+    margin-bottom: 1.5rem;
+}
+
+/* Back to Home Button */
+.back-button {
+    background-color: #fff;
+    color: #111;
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 10px 20px;
+    margin-top: 2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+  }

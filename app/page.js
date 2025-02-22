@@ -20,7 +20,7 @@ export default function HomePage() {
         <div className="nav-left">SHUBHAM GOEL</div>
         <nav className="nav-right">
           <a href="#projects" className="nav-link">MY PROJECTS</a>
-          <a href="#about" className="nav-link">ABOUT ME</a>
+          <a href="/about" className="nav-link">ABOUT ME</a>
           <a href="#socials" className="nav-link">SOCIALS</a>
         </nav>
       </header>
