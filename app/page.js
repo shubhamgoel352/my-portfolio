@@ -1,16 +1,27 @@
 "use client";
+import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 
 export default function HomePage() {
+  const videoRef = useRef(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (video) {
+      // Set playback speed to 0.5 (half speed)
+      video.playbackRate = 0.6;
+    }
+  }, []);
+
   return (
     <div className="main-container">
       {/* Minimal Navigation */}
       <header className="top-nav">
         <div className="nav-left">SHUBHAM GOEL</div>
         <nav className="nav-right">
-          <a href="#index" className="nav-link">MY PROJECTS</a>
-          <a href="#close" className="nav-link">ABOUT ME</a>
-          <a href="#sitemap" className="nav-link">SOCIALS</a>
+          <a href="#projects" className="nav-link">MY PROJECTS</a>
+          <a href="#about" className="nav-link">ABOUT ME</a>
+          <a href="#socials" className="nav-link">SOCIALS</a>
         </nav>
       </header>
 
@@ -18,6 +29,7 @@ export default function HomePage() {
       <section className="hero-section">
         {/* Video Background */}
         <video 
+          ref={videoRef}
           autoPlay
           loop
           muted
@@ -35,9 +47,9 @@ export default function HomePage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
         >
-          <h1 className="hero-heading">Technology Redifined.</h1>
+        <h1 className="hero-heading">Creating, Innovating, and Transforming</h1>
           <p className="hero-subheading">
-            Your brand's story told through digital artistry.
+          Bridging Technology and Creativity for Lasting Impact.
           </p>
           <button className="hero-cta">My Work →</button>
         </motion.div>
@@ -46,11 +58,10 @@ export default function HomePage() {
       {/* Footer / Bottom Bar */}
       <footer className="bottom-bar">
         <div className="left-bar">
-          <p>Thank you for visiting</p>
+            <p></p>
         </div>
         <div className="right-bar">
-          <button>Accept</button>
-          <button>Sound On</button>
+            <p>Thank you for visiting</p>
         </div>
       </footer>
     </div>
