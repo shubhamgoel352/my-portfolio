@@ -1,20 +1,25 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import IntroScreen from "./components/IntroScreen";
 import Header from "./components/Header";
 
 export default function Home() {
   const [showMainContent, setShowMainContent] = useState(false);
-  const [selectedFilter, setSelectedFilter] = useState("All");
+
+  useEffect(() => {
+    document.body.style.overflow = showMainContent ? "auto" : "hidden"; // Prevent scroll during intro
+  }, [showMainContent]);
 
   return (
-    <div className="bg-black text-white">
-      {!showMainContent && <IntroScreen onComplete={() => setShowMainContent(true)} />}
+    <div className={`transition-opacity duration-1000 ${showMainContent ? "opacity-100" : "opacity-0"}`}>
+      {!showMainContent && (
+        <IntroScreen onIntroComplete={() => setShowMainContent(true)} />
+      )}
 
       {showMainContent && (
         <>
-          <Header onFilterChange={setSelectedFilter} />
+          <Header />
 
           {/* Hero Section */}
           <section className="min-h-screen flex flex-col items-center justify-center">

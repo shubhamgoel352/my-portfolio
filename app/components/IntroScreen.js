@@ -1,34 +1,30 @@
-"use client";
-import { motion } from "framer-motion";
-import { useState, useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 
-export default function IntroScreen({ onComplete }) {
-  const [isVisible, setIsVisible] = useState(true);
+export default function IntroScreen({ onIntroComplete }) {
+  const videoRef = useRef(null);
 
   useEffect(() => {
-    setTimeout(() => {
-      setIsVisible(false);
-      if (onComplete) onComplete();
-    }, 3000); // Adjust intro duration
-  }, []);
+    const video = videoRef.current;
+
+    if (video) {
+      video.play().catch((error) => console.error("Video play failed:", error));
+
+      // When the video ends, transition to the homepage
+      video.onended = () => {
+        if (onIntroComplete) {
+          onIntroComplete();
+        }
+      };
+    }
+  }, [onIntroComplete]);
 
   return (
-    <motion.div
-      className="intro-screen flex items-center justify-center text-white"
-      initial={{ opacity: 1 }}
-      animate={{ opacity: 0 }}
-      exit={{ opacity: 0, scale: 1.2 }} // Adds a zoom-out effect
-      transition={{ duration: 1.5, delay: 1.5, ease: "easeInOut" }}
-      style={{ display: isVisible ? "flex" : "none" }} // Ensures it disappears fully
-    >
-      <motion.h1
-        initial={{ scale: 1.2, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{ duration: 1 }}
-        className="text-6xl font-bold"
-      >
-        About Shubham Goel
-      </motion.h1>
-    </motion.div>
+    <div className="intro-screen">
+      {/* Fullscreen Video */}
+      <video ref={videoRef} autoPlay muted playsInline className="intro-video">
+        <source src="/intro-video.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
   );
 }
