@@ -20,9 +20,9 @@ export default function HomePage() {
       <header className="top-nav">
         <div className="nav-left">SHUBHAM GOEL</div>
         <nav className="nav-right">
-          <a href="#projects" className="nav-link">MY PROJECTS</a>
-          <a href="/about" className="nav-link">ABOUT ME</a>
-          <a href="#socials" className="nav-link">SOCIALS</a>
+          <Link href="/projects" className="nav-link">MY PROJECTS</Link>
+          <Link href="/about" className="nav-link">ABOUT ME</Link>
+          <Link href="#socials" className="nav-link">SOCIALS</Link>
         </nav>
       </header>
 
@@ -52,7 +52,7 @@ export default function HomePage() {
           <p className="hero-subheading">
             Bridging Technology and Creativity for Lasting Impact.
           </p>
-          <Link href="/projects" passHref>
+          <Link href="/projects">
             <button className="hero-cta">VIEW MY PORTFOLIO →</button>
           </Link>
         </motion.div>
@@ -60,9 +60,6 @@ export default function HomePage() {
 
       {/* Footer / Bottom Bar */}
       <footer className="bottom-bar">
-        <div className="left-bar">
-          <p></p>
-        </div>
         <div className="right-bar">
           <p>Thank you for visiting</p>
         </div>

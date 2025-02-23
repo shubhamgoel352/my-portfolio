@@ -1,21 +1,15 @@
 "use client";
 import { motion } from "framer-motion";
 import Link from "next/link"; // For navigation
+import "../../styles/about.css";
 
 export default function About() {
   return (
     <div className="about-container">
       {/* Back Arrow Button */}
-      <motion.div
-        className="arrow-button"
-        initial={{ opacity: 0, x: -20 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.8, delay: 0.5 }}
-      >
-        <Link href="/" passHref>
-          <button className="back-button">← Back</button>
-        </Link>
-      </motion.div>
+      <Link href="/" passHref>
+        <button className="back-button">← Back</button>
+      </Link>
 
       <section className="about-hero">
         <motion.h1
